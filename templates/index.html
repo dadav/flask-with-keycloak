@@ -1,0 +1,18 @@
+{% if oauth_token %}
+<a href="/admin">Check admin access (requires admin role)</a>
+<h1>OAuth-Token</h1>
+<pre>
+{{ oauth_token }}
+</pre>
+<h1>Access-Token</h1>
+<pre>
+{{ access_token }}
+</pre>
+<h1>Userinfo</h1>
+<pre>
+{{ userinfo }}
+</pre>
+<a href="/logout">logout</a>
+{% else %}
+<a href="/login">login</a>
+{% endif %}
