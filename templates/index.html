@@ -1,18 +1,58 @@
-{% if oauth_token %}
-<a href="/admin">Check admin access (requires admin role)</a>
-<h1>OAuth-Token</h1>
-<pre>
-{{ oauth_token }}
-</pre>
-<h1>Access-Token</h1>
-<pre>
-{{ access_token }}
-</pre>
-<h1>Userinfo</h1>
-<pre>
-{{ userinfo }}
-</pre>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50.0%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+{% if id_token %}
 <a href="/logout">logout</a>
+<br>
+<a href="/admin">admin area</a>
+<br>
+<a href="/refresh">refresh tokens</a>
 {% else %}
 <a href="/login">login</a>
 {% endif %}
+
+<h2>Keycloak result</h2>
+
+<div class="row">
+  <div class="column">
+    <h2>ID Token</h2>
+		{% if id_token %}
+		<pre>
+		{{- id_token }}
+		</pre>
+		{% endif %}
+  </div>
+  <div class="column">
+    <h2>Access Token</h2>
+		{% if access_token %}
+		<pre>
+		{{- access_token }}
+		</pre>
+		{% endif %}
+  </div>
+</div>
+</body>
+</html>
