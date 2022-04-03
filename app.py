@@ -3,7 +3,6 @@
 import os
 import json
 import requests
-from base64 import b64encode
 from functools import wraps
 from flask import Flask, session, url_for, render_template, redirect
 from authlib.integrations.flask_client import OAuth
